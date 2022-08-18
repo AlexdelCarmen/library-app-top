@@ -5,6 +5,22 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--main-font);
 }
 
+:root {
+  --dark-1: #0b090a;
+  --dark-2: #161a1d;
+  --accent-1: #660708;
+  --accent-2: #a4161a;
+  --accent-3: #ba181b;
+  --accent-4: #e5383b;
+  --light-1: #b1a7a6;
+  --light-2: #d3d3d3;
+  --light-3: #f5f3f4;
+  --light-4: #ffffff;
+  --main-font: "Montserrat", sans-serif;
+  --title-font: "Cardo", serif;
+  --title-size: 21px;
+  --text-size: 15px;
+}
