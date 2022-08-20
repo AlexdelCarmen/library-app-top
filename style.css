@@ -153,7 +153,6 @@ header > h1 {
   width: 350px;
   color: var(--light-2);
   border-radius: 30px;
-  margin: 1.5rem;
 }
 
 .card-row {
@@ -228,7 +227,7 @@ input:checked + .slider:before {
 
 /* Media queries */
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -241,7 +240,6 @@ input:checked + .slider:before {
 
   .library-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
