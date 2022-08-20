@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--main-font);
+  background-color: var(--dark-1);
 }
 
 :root {
@@ -138,6 +139,95 @@ header > h1 {
   display: none;
 }
 
+.library-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.book-card {
+  padding: 1rem;
+  background-color: var(--dark-2);
+  width: 350px;
+  color: var(--light-2);
+  border-radius: 30px;
+  margin: 1.5rem;
+}
+
+.card-row {
+  margin-left: 20px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.bold-text {
+  font-weight: bold;
+  color: var(--accent-3);
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light-1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  font-size: 13px;
+  position: absolute;
+  content: "No";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--dark-1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  line-height: 1;
+  text-align: center;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-4);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--accent-4);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  content: "Yes";
+}
+
+/* Media queries */
+
 @media (min-width: 600px) {
   header {
     flex-direction: row;
@@ -147,5 +237,11 @@ header > h1 {
 
   header > h1 {
     margin-top: 0;
+  }
+
+  .library-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
   }
 }
