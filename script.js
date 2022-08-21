@@ -4,23 +4,37 @@ const header = document.querySelector("header");
 const closeButton = document.querySelector(".input-close");
 const submitBookButton = document.querySelector(".submit-input");
 const libraryContainer = document.querySelector(".library-container");
+const inputTitle = document.getElementById("title");
+const inputAuthor = document.getElementById("author");
+const inputPages = document.getElementById("pages");
 
-let bookCollection = [
-  {
-    title: "Rage",
-    author: "Stephen King",
-    pages: 493,
-    read: "No",
-  },
-  {
-    title: "Rage",
-    author: "Stephen King",
-    pages: 493,
-    read: "No",
-  },
-];
+let bookCollection = [];
+
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+}
+
+function createBook() {
+  var book = new Book(
+    inputTitle.value,
+    inputAuthor.value,
+    inputPages.value,
+    "no"
+  );
+
+  bookCollection.push(book);
+}
+
+function removeCards() {
+  const allCards = document.querySelectorAll(".book-card");
+  allCards.forEach((card) => card.remove());
+}
 
 function displayBooks() {
+  removeCards();
   for (let i = 0; i < bookCollection.length; i++) {
     let bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
@@ -78,8 +92,6 @@ function displayBooks() {
   }
 }
 
-displayBooks();
-
 addBookButton.addEventListener("click", () => {
   modal.classList.remove("invisible");
   header.classList.add("invisible");
@@ -93,4 +105,6 @@ closeButton.addEventListener("click", () => {
 submitBookButton.addEventListener("click", () => {
   modal.classList.add("invisible");
   header.classList.remove("invisible");
+  createBook();
+  displayBooks();
 });
