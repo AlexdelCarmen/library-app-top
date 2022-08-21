@@ -7,6 +7,8 @@ const libraryContainer = document.querySelector(".library-container");
 const inputTitle = document.getElementById("title");
 const inputAuthor = document.getElementById("author");
 const inputPages = document.getElementById("pages");
+let deleteButtons;
+let bookCards;
 
 let bookCollection = [];
 
@@ -89,7 +91,31 @@ function displayBooks() {
     let slider = document.createElement("span");
     slider.classList.add("slider");
     toggleLabel.appendChild(slider);
+    let cardRow5 = document.createElement("div");
+    cardRow5.classList.add("card-row");
+    bookCard.appendChild(cardRow5);
+    let deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-book");
+    deleteButton.textContent = "Delete";
+    cardRow5.appendChild(deleteButton);
   }
+
+  deleteButtons = document.querySelectorAll(".delete-book");
+
+  deleteButtons.forEach((button) =>
+    button.addEventListener("click", () => {
+      let divCardId = button.parentNode.parentNode.id;
+      divToDelete = document.getElementById(divCardId);
+      divToDelete.remove();
+      bookCollection.splice(divCardId, 1);
+      let bookCards = document.querySelectorAll(".book-card");
+      let i = 0;
+      bookCards.forEach((card) => {
+        card.id = i;
+        i++;
+      });
+    })
+  );
 }
 
 addBookButton.addEventListener("click", () => {

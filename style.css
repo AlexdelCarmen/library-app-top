@@ -160,11 +160,18 @@ header > h1 {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  margin: 10px;
 }
 
 .bold-text {
   font-weight: bold;
   color: var(--accent-3);
+  width: 30%;
+}
+
+.text {
+  width: 60%;
+  text-align: right;
 }
 
 /* The switch - the box around the slider */
@@ -173,6 +180,7 @@ header > h1 {
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin-left: 120px;
 }
 
 /* Hide default HTML checkbox */
@@ -236,6 +244,28 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
   margin: 10rem auto;
+}
+
+.delete-book {
+  margin: 0 auto;
+  padding: 0.3rem;
+  width: 150px;
+  font-family: var(--main-font);
+  font-size: var(--text-size);
+  background-color: var(--light-1);
+  border: 1px solid var(--light-1);
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.delete-book:hover,
+.delete-book:active {
+  background-color: var(--accent-3);
+  border: 1px solid var(--accent-3);
+}
+
+.delete-book:active {
+  transform: scale(99%);
 }
 
 /* Media queries */
